@@ -11,7 +11,6 @@ set xpr_files [glob -nocomplain [file join $proj_dir *.xpr]]
 if {[llength $xpr_files] == 0} {
     error "No Vivado project found in $proj_dir. Run create.tcl first."
 }
-open_project [lindex $xpr_files 0]
 
 set_property -name {xsim.simulate.runtime} -value {1000ns} -objects [get_filesets sim_1]
 launch_simulation -simset sim_1 -mode behavioral -noclean_dir
